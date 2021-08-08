@@ -2,6 +2,6 @@
 yum -y update
 yum -y install httpd
 OS_VERSION=$(cat /proc/version)
-echo "<html><body bgcolor=black><center><h1><p><font color=green>Hello World <br> $OS_VERSION</h1></center></body></html>" > /var/www/html/index.html
+echo "<html><body bgcolor=blue><center><h1><p><font color=brown>Hello World <br> $OS_VERSION</h1></center></body></html>" > /var/www/html/index.html
 sudo service httpd start
 chkconfig httpd on
