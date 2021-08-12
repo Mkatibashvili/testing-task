@@ -1,0 +1,82 @@
+i create both machine  add 
+
+ubuntu machine
+inbound rule 
+sgr-0a0b40e2a5bcccd68
+TCP
+80
+None found Loading...
+0.0.0.0/0
+
+Delete
+sgr-0031323b3bad40598
+ICMP
+All
+None found Loading...
+0.0.0.0/0
+
+Delete
+sgr-0d1b3f28b525a8b80
+TCP
+443
+None found Loading...
+0.0.0.0/0
+
+Delete
+sgr-0c19adc0c0b1b5bf8
+TCP
+22
+None found Loading...
+0.0.0.0/0
+
+outbound rule
+sgr-0d06ea1a4dcd1def9	IPv4	All traffic	All	All	0.0.0.0/0
+
+
+Centos machine create 
+
+inboud rule   this ubuntus privet ip address one my ip address
+
+sgr-0fa6bb6c9bdf4e702	IPv4	HTTPS	TCP	443	172.31.34.199/32	–
+
+–
+sgr-0cc4240a1e2162fb7	IPv4	SSH	TCP	22	46.49.88.132/32	–
+
+–
+sgr-050ab92f2c058fe7c	IPv4	All ICMP - IPv4	ICMP	All	172.31.34.199/32	–
+
+–
+sgr-0d586c8d7d16c99a3	IPv4	SSH	TCP	22	172.31.34.199/32	–
+
+–
+sgr-0877140e420ca5a5f	IPv4	HTTP	TCP	80	172.31.34.199/32
+
+
+outbound rule 
+
+ubuntus ip address privet and public
+
+sgr-0a31981fad0adb76d	IPv4	All traffic	All	All	54.93.105.4/32	–
+
+–
+sgr-084e889f6661f45ff	IPv4	All traffic	All	All	172.31.34.199/32
+
+
+on ubuntu 
+
+push scirpt 
+#!/bin/bash
+apt -y update
+apt -y install nginx
+OS_VERSION=$(cat /proc/version)
+echo "<html><body bgcolor=white><center><h1><p><font color=blue>Hello World <br> $OS_VERSION</h1></center></body></html>" > /var/www/html/index.html
+sudo systemctl start nginx
+chkconfig httpd on
+http://54.93.105.4/
+
+i create IAM user admin all privilege to use for AWScli login.
+ubuntu install docker 
+
+sudo apt install docker.io
+install terraform and stuck tor create file.
+
