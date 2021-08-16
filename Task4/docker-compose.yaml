@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  mariadb:
+    image: mariadb:latest
+    ports:
+      - 3306:3306
+    restart: always
+    volumes:
+      - ./db-volume:/var/lib/mysql
+    environment:
+      MYSQL_USER: wordpressdev
+      MYSQL_PASSWORD: wordpressdev
+      MYSQL_DATABASE: wordpress
+      MYSQL_ROOT_PASSWORD: devpassword
+  wordpress:
+    image: YOURIMAGETAG:latest
+    environment:
+      DB_USER: wordpressdev
+    volumes:
+      - ../wordpress:/var/apphome/wordpress
+      - ../vendor:/var/apphome/vendor
+    ports:
+      - 8044:8080
